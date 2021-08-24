@@ -1,0 +1,40 @@
+{
+  "name": "UniCone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-dev": "npx nodemon server/index.js",
+    "react-dev": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyliu11/hr-rfp54-mvp.git"
+  },
+  "author": "Emily_L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yyliu11/hr-rfp54-mvp/issues"
+  },
+  "homepage": "https://github.com/yyliu11/hr-rfp54-mvp#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.8",
+    "mongoose-auto-increment": "^5.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-syntax-jsx": "^7.14.5",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  }
+}

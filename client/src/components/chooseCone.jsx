@@ -12,7 +12,7 @@ let ChooseCone = (props) => {
   ]);
   const [cone, setCone] = useState('');
   const [select, setSelect] = useState(false);
-  console.log(cone);
+
 
   return (
     <>
@@ -24,8 +24,10 @@ let ChooseCone = (props) => {
       <div id='carousel'>
       <Carousel>
         {images.map(image => <div key={image.id}><img id='cone-img' src={image.url}></img><div id='cone-name'>{image.name}</div>
-        {select === false ? <div><button className='circle' onClick={(e) => {e.preventDefault();setCone(image.name);setSelect(true);}}></button><span className='select'>Select</span></div> : <div><button className='full-circle' onClick={() => {setCone('');setSelect(false);}}>✓</button><span className='selected'>Selected</span></div>}</div>)}
+        {select === false ? <div><button className='circle' onClick={(e) => {e.preventDefault();setCone(image.name);setSelect(true);props.setOrder({cone: image.name})}}></button><span className='select'>Select</span></div> : null}
+        </div>)}
       </Carousel>
+      {select === true ? <div><button className='full-circle' onClick={() => {setSelect(false);}}>✓</button><span className='selected'>Selected {cone}</span></div> : null}
       </div>
     </>
   )

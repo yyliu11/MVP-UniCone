@@ -10,7 +10,7 @@ var connection = mongoose.createConnection("mongodb://localhost/db");
 autoIncrement.initialize(connection);
 
 let orderSchema = new Schema({
-  customer_name: { type: Schema.Types.ObjectId, ref: 'Customer' },
+  customer_name: String,
   order_at: String,
   cone: String,
   flavor: String,
@@ -21,18 +21,14 @@ let orderSchema = new Schema({
 orderSchema.plugin(autoIncrement.plugin, 'Order');
 let Order = connection.model('Order', orderSchema);
 
-// let getRepos = function(cb) {
-//   Repo.find({}, cb).sort({'forks_count': 1}).limit(3);
-// }
+let getOrders = function(cb) {
+  Order.find({}, cb);
+}
 
 let save = function(order) {
-  // TODO: Your code here
-  // This function should save a repo or repos to
-  // the MongoDB
   var instance = new Order(order);
-  instance.save().then (() => console.log('--------------------saved'));
-
+  instance.save().then (()=> console.log('---------saved')).catch(err => console.log(err))
 };
 
 module.exports.save = save;
-// module.exports.getRepos = getRepos;
+module.exports.getOrders = getOrders;

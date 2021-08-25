@@ -6,31 +6,24 @@ let app = express();
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
 
-// app.post('/orders', function (req, res) {
-//   // TODO - your code here!
-
-//   getRepo.getReposByUsername(req.body.username, function(data) {
-
-//     for (var i = 0; i < data.length; i++) {
-//       var doc = {repo_name: data[i].name,
-//                  owner_name: data[i].owner.login,
-//                  owner_id: data[i].owner.id,
-//                  html_url: data[i].html_url,
-//                  updated_at: data[i].updated_at,
-//                  forks_count: data[i].forks_count
-//                 };
-//       db.save(doc);
-//     }
-//   });
-// });
+app.post('/orders', function (req, res) {
+  var doc = {customer_name: req.body.customer_name,
+             order_at: new Date(),
+             cone: req.body.cone,
+             flavor: req.body.flavor,
+             sauce: req.body.sauce,
+             topping: req.body.topping
+            };
+  db.save(doc);
+  res.send('Order received!');
+});
 
 
 app.get('/orders', function (req, res) {
- res.send('Hello from server!')
-  // db.getRepos(function(err, results) {
-  //   if (err) { throw err; }
-  //   res.json(results);
-  // });
+  db.getOrders(function(err, results) {
+    if (err) { throw err; }
+    res.json(results);
+  });
 });
 
 let port = 5000;

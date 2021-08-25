@@ -10,14 +10,21 @@ let ChooseCone = (props) => {
     {id: 3, name:'Chocolate Dipped', url:'https://i.postimg.cc/6qRfzjgL/choco-dipped-cone.png'},
     {id: 4, name:'Kid Cone', url:'https://i.postimg.cc/SKsLHNHK/kid-cone.png'}
   ]);
+  const [cone, setCone] = useState('');
+  const [select, setSelect] = useState(false);
+  console.log(cone);
+
   return (
     <>
     <div className='block'></div>
       <div className='step'>STEP 1</div>
-      <h2 id='choose'>Choose Cone</h2>
+      <span onClick={() => {props.toggleCone();props.toggleHomepage();}} className='left-arrow'>〈</span>
+      <span id='choose'><strong>Choose Cone</strong></span>
+      <span className='right-arrow' onClick={() => {props.toggleCone();props.toggleFlavor();}}>〉</span>
       <div id='carousel'>
       <Carousel>
-        {images.map(image => <div key={image.id}><img id='cone-img' src={image.url}></img><div id='cone-name'>{image.name}</div></div>)}
+        {images.map(image => <div key={image.id}><img id='cone-img' src={image.url}></img><div id='cone-name'>{image.name}</div>
+        {select === false ? <div><button className='circle' onClick={(e) => {e.preventDefault();setCone(image.name);setSelect(true);}}></button><span className='select'>Select</span></div> : <div><button className='full-circle' onClick={() => {setCone('');setSelect(false);}}>✓</button><span className='selected'>Selected</span></div>}</div>)}
       </Carousel>
       </div>
     </>

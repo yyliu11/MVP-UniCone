@@ -11,15 +11,16 @@ let ChooseCone = (props) => {
     {id: 4, name:'Kid Cone', url:'https://i.postimg.cc/SKsLHNHK/kid-cone.png'}
   ]);
   return (
-    <div>
-      <label id='step'>STEP 1</label>
-      <p id='choose'>Choose Cone</p>
+    <>
+    <div className='block'></div>
+      <div className='step'>STEP 1</div>
+      <h2 id='choose'>Choose Cone</h2>
       <div id='carousel'>
       <Carousel>
-        {images.map(image => <div key={image.id}><img id='cone-img' src={image.url}></img><div>{image.name}</div></div>)}
+        {images.map(image => <div key={image.id}><img id='cone-img' src={image.url}></img><div id='cone-name'>{image.name}</div></div>)}
       </Carousel>
       </div>
-    </div>
+    </>
   )
 };
 

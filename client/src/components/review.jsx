@@ -8,7 +8,7 @@ let Review = (props) => {
     axios
       .post(`http://localhost:5000/orders`, {customer_name: 'Emily Liu', cone: props.order.cone.cone_name, flavor: props.order.flavor.flavor_name, sauce: props.order.sauce.sauce_name, topping: props.order.topping.topping_name, ready: false})
       .then((res) => {
-        alert('Progress bar go!');
+        console.log('Order sent successfully');
       })
       .catch((err) => {
         alert('Order sending failed. Please try again.');

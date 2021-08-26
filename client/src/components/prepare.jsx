@@ -35,7 +35,6 @@ let Prepare = (props) => {
                      axios.get('http://localhost:5000/orders', {params: {customer_name: 'Emily Liu'}})
                            .then((res) => {
                              if (res.data[0].ready === false) {
-                               console.log(res.data[0].ready);
                               clearInterval(checking);
                               props.togglePrepare();
                               props.togglePickup();
@@ -50,6 +49,7 @@ let Prepare = (props) => {
   return (
     <>
     <h2 className='preparing'>Preparing Your Order...</h2>
+    <div className='countdown'>
     <CountdownCircleTimer
         {...timerProps}
         colors={[["#EF798A"]]}
@@ -63,6 +63,7 @@ let Prepare = (props) => {
           renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
         }
     </CountdownCircleTimer>
+    </div>
     </>
   )
   };

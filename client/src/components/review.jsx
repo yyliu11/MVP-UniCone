@@ -1,8 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+const axios = require('axios');
 
 let Review = (props) => {
-console.log()
+
+  const sendOrder = () => {
+    axios
+      .post(`http://localhost:5000/orders`, {customer_name: 'Emily Liu', cone: props.order.cone.cone_name, flavor: props.order.flavor.flavor_name, sauce: props.order.sauce.sauce_name, topping: props.order.topping.topping_name, ready: false})
+      .then((res) => {
+        alert('Progress bar go!');
+      })
+      .catch((err) => {
+        alert('Order sending failed. Please try again.');
+      });
+  };
+
   return (
     <>
     <h3 id='review'>Review</h3>
@@ -30,7 +42,7 @@ console.log()
       <a className='qty'>Qty:&nbsp;&nbsp;{props.order.topping.qty}</a>
       <span className='review-right-arrow' onClick={() => {props.toggleTopping();props.toggleReview();}}>〉</span>
     </div>
-    <div><button id='btn' onClick={() => {props.toggleReview();}}>Confirm</button>
+    <div><button id='btn' onClick={() => {sendOrder(); props.toggleReview(); props.togglePrepare();}}>Confirm</button>
       </div>
     </>
   )

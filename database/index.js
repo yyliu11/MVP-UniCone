@@ -15,14 +15,15 @@ let orderSchema = new Schema({
   cone: String,
   flavor: String,
   sauce: String,
-  topping: String
+  topping: String,
+  ready: Boolean
 });
 
 orderSchema.plugin(autoIncrement.plugin, 'Order');
 let Order = connection.model('Order', orderSchema);
 
-let getOrders = function(cb) {
-  Order.find({}, cb);
+let getOrders = function(param, cb) {
+  Order.find({customer_name: param}, cb);
 }
 
 let save = function(order) {

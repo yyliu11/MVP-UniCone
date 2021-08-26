@@ -12,15 +12,17 @@ app.post('/orders', function (req, res) {
              cone: req.body.cone,
              flavor: req.body.flavor,
              sauce: req.body.sauce,
-             topping: req.body.topping
+             topping: req.body.topping,
+             ready: req.body.ready
             };
+
   db.save(doc);
   res.send('Order received!');
 });
 
 
 app.get('/orders', function (req, res) {
-  db.getOrders(function(err, results) {
+  db.getOrders(req.query.customer_name, function(err, results) {
     if (err) { throw err; }
     res.json(results);
   });

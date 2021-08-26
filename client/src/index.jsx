@@ -6,7 +6,8 @@ import ChooseCone from './components/chooseCone.jsx';
 import ChooseSauce from './components/chooseSauce.jsx';
 import ChooseTopping from './components/chooseTopping.jsx';
 import Review from './components/review.jsx';
-const axios = require('axios');
+import Prepare from './components/prepare.jsx';
+import Pickup from './components/pickup.jsx';
 
 let App = () => {
   const [homepage, setHomepage] = useState(true);
@@ -21,6 +22,10 @@ let App = () => {
   const toggleTopping = () => setChooseTopping(!chooseTopping);
   const [review, setReview] = useState(false);
   const toggleReview = () => setReview(!review);
+  const [prepare, setPrepare] = useState(false);
+  const togglePrepare = () => setPrepare(!prepare);
+  const [pickup, setPickup] = useState(false);
+  const togglePickup = () => setPickup(!pickup);
   const [order, setOrder] = useState({
     customer_name: '',
     order_at: '',
@@ -54,7 +59,9 @@ let App = () => {
       {chooseFlavor === true ? <ChooseFlavor toggleCone={toggleCone} toggleFlavor={toggleFlavor} toggleSauce={toggleSauce} setOrder={setOrder}/> : null}
       {chooseSauce === true ? <ChooseSauce toggleFlavor={toggleFlavor} toggleSauce={toggleSauce} toggleTopping={toggleTopping} setOrder={setOrder}/> : null}
       {chooseTopping === true ? <ChooseTopping toggleSauce={toggleSauce} toggleTopping={toggleTopping} toggleReview={toggleReview} setOrder={setOrder}/> : null}
-      {review === true ? <Review toggleReview={toggleReview} order={order} toggleCone={toggleCone} toggleFlavor={toggleFlavor} toggleSauce={toggleSauce} toggleTopping={toggleTopping} /> : null}
+      {review === true ? <Review toggleReview={toggleReview} order={order} toggleCone={toggleCone} toggleFlavor={toggleFlavor} toggleSauce={toggleSauce} toggleTopping={toggleTopping} togglePrepare={togglePrepare}/> : null}
+      {prepare === true ? <Prepare order={order} togglePrepare={togglePrepare} togglePickup={togglePickup}/> : null}
+      {pickup === true ? <Pickup /> : null}
       </>
     )
 

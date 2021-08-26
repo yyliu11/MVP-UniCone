@@ -21,17 +21,40 @@ let App = () => {
   const toggleTopping = () => setChooseTopping(!chooseTopping);
   const [review, setReview] = useState(false);
   const toggleReview = () => setReview(!review);
-
+  const [order, setOrder] = useState({
+    customer_name: '',
+    order_at: '',
+    cone: {
+      cone_name: '',
+      img_url: '',
+      qty: 0
+    },
+    flavor: {
+      flavor_name: '',
+      img_url: '',
+      qty: 0
+    },
+    sauce: {
+      sauce_name: '',
+      img_url: '',
+      qty: 0
+    },
+    topping: {
+      topping_name: '',
+      img_url: '',
+      qty: 0
+    }
+  });
 
 
     return (
       <>
       {homepage === true ? <Homepage toggleHomepage={toggleHomepage} toggleCone={toggleCone}/> : null}
-      {chooseCone === true ? <ChooseCone toggleCone={toggleCone} toggleFlavor={toggleFlavor}/> : null}
-      {chooseFlavor === true ? <ChooseFlavor toggleFlavor={toggleFlavor} toggleSauce={toggleSauce}/> : null}
-      {chooseSauce === true ? <ChooseSauce toggleSauce={toggleSauce} toggleTopping={toggleTopping}/> : null}
-      {chooseTopping === true ? <ChooseTopping toggleTopping={toggleTopping} toggleReview={toggleReview}/> : null}
-      {review === true ? <Review toggleReview={toggleReview}/> : null}
+      {chooseCone === true ? <ChooseCone toggleHomepage={toggleHomepage} toggleCone={toggleCone} toggleFlavor={toggleFlavor} setOrder={setOrder} /> : null}
+      {chooseFlavor === true ? <ChooseFlavor toggleCone={toggleCone} toggleFlavor={toggleFlavor} toggleSauce={toggleSauce} setOrder={setOrder}/> : null}
+      {chooseSauce === true ? <ChooseSauce toggleFlavor={toggleFlavor} toggleSauce={toggleSauce} toggleTopping={toggleTopping} setOrder={setOrder}/> : null}
+      {chooseTopping === true ? <ChooseTopping toggleSauce={toggleSauce} toggleTopping={toggleTopping} toggleReview={toggleReview} setOrder={setOrder}/> : null}
+      {review === true ? <Review toggleReview={toggleReview} order={order} toggleCone={toggleCone} toggleFlavor={toggleFlavor} toggleSauce={toggleSauce} toggleTopping={toggleTopping} /> : null}
       </>
     )
 

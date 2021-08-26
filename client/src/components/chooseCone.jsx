@@ -24,10 +24,10 @@ let ChooseCone = (props) => {
       <div id='carousel'>
       <Carousel>
         {images.map(image => <div key={image.id}><img id='cone-img' src={image.url}></img><div id='cone-name'>{image.name}</div>
-        {select === false ? <div><button className='circle' onClick={(e) => {e.preventDefault();setCone(image.name);setSelect(true);props.setOrder({cone: image.name})}}></button><span className='select'>Select</span></div> : null}
+        {select === false ? <div><button className='circle' onClick={(e) => {e.preventDefault();setCone(image.name);setSelect(true);props.setOrder(prevState => ({...prevState, cone: {cone_name: image.name, img_url: image.url, qty: 1}}))}}></button><span className='select'>Select</span></div> : null}
         </div>)}
       </Carousel>
-      {select === true ? <div><button className='full-circle' onClick={() => {setSelect(false);}}>✓</button><span className='selected'>Selected {cone}</span></div> : null}
+      {select === true ? <div><button className='full-circle' onClick={() => {setSelect(false);props.setOrder(prevState => ({...prevState, cone: {cone_name: '', img_url: '', qty: 0}}))}}>✓</button><span className='selected'>Selected {cone}</span></div> : null}
       </div>
     </>
   )

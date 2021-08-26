@@ -26,10 +26,10 @@ let ChooseFlavor = (props) => {
       <div id='carousel'>
       <Carousel>
         {images.map(image => <div key={image.id}><img id='cone-img' src={image.url}></img><div id='cone-name'>{image.name}<div className='description'>{image.description}</div></div>
-        {select === false ? <div><button className='circle' onClick={(e) => {e.preventDefault();setFlavor(image.name);setSelect(true);props.setOrder(prevState => ({...prevState, flavor: image.name}))}}></button><span className='select'>Select</span></div> : null}
+        {select === false ? <div><button className='circle' onClick={(e) => {e.preventDefault();setFlavor(image.name);setSelect(true);props.setOrder(prevState => ({...prevState, flavor: {flavor_name: image.name, img_url: image.url, qty: 1}}))}}></button><span className='select'>Select</span></div> : null}
         </div>)}
       </Carousel>
-      {select === true ? <div><button className='full-circle' onClick={() => {setSelect(false);}}>✓</button><span className='selected'>Selected {flavor}</span></div> : null}
+      {select === true ? <div><button className='full-circle' onClick={() => {setSelect(false);props.setOrder(prevState => ({...prevState, flavor: {flavor_name: '', img_url: '', qty: 0}}))}}>✓</button><span className='selected'>Selected {flavor}</span></div> : null}
       </div>
     </>
   )

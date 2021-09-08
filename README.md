@@ -2,7 +2,7 @@
 
 The goal of the MVP was to produce a compelling product in 24 hours. 
 
-Unicone is an in-store ordering mobile app for ice cream store. Customers can make their own ice cream creation through 4 steps of making selections. The app connnects with server and database, which allows users to check order status and get notifications.
+Unicone is a mobile ordering app for ice cream store. It allows customers to pre-order and get pickup notifications.
 
 ---
 

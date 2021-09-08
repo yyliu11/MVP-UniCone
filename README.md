@@ -1,6 +1,11 @@
 # Project MVP - Unicone
 
-The goal of the MVP was to produce a compelling product in 24 hours. 
+![javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![node.js](https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg)
+
+![gamut banner](https://i.postimg.cc/Gt4YpQgF/Screen-Shot-2021-09-08-at-14-38-16.png)
 
 Unicone is a mobile ordering app for ice cream store. It allows customers to pre-order and get pickup notifications.
 
@@ -8,13 +13,7 @@ Unicone is a mobile ordering app for ice cream store. It allows customers to pre
 
 ## Tech Stack
 
-<code><img width="15%" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>
 
-### React
-
-<code><img width="15%" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"></code>
-
-### Nodejs
 
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"></code>
 

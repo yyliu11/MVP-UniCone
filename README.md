@@ -10,4 +10,4 @@
 
 ![gamut banner](https://i.postimg.cc/Gt4YpQgF/Screen-Shot-2021-09-08-at-14-38-16.png)
 
-Unicone is a mobile ordering app for ice cream store. It allows customers to pre-order and get pickup notifications.
+Unicone is a mobile ordering app for ice cream store. It provides pre-order and pickup services.
